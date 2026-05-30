@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .all {
+        background-color:lightblue;
+        width: 80%;
+        margin:auto;
+        padding: 20px;
+        min-height: 100% ;
+        }
+
+        h1{
+        text-align: center;
+        text-transform: capitalize;
+        background-color: #0f00a3;
+        color: white;
+        }
+
+        img{
+            position: absolute;
+            width: 200px;
+            left: 62.5%;
+            top: 135px;
+        }
+
+        .login{
+        border-top:solid 5px #0f00a3;
+        border-bottom:solid 5px #0f00a3;
+        }
+
+        label {
+        display: inline-block;
+        width: 110px
+        }
+
+        .btn {
+        width: 120px;
+        height: 40px;
+        font-size:large;
+        border: solid white 2px;
+        border-left: solid black 2px;
+        }
+
+        .btn:hover{
+        background-color: #0f00a3;
+        color:white;
+        border: white solid 2px;
+        border-left: black solid 2px;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        }
+
+        #txt ,#pass{
+        width: 38%;
+        height: 25px;
+        border: solid white 2px;
+        border-left: solid black 2px;
+        transition-duration: 0.5s;
+        background-color: white;
+        color: black;
+        }
+
+        #txt:focus,#pass:focus{
+        background-color: white;
+        color: black;
+        transform: scale(1.06);
+        border: 2px black solid;    
+        }
+    </style>
+    <link rel="icon" href="login icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <img src="login picture.png" alt="Login Picture">
+    <div class="all">
+        <h1>Login Page</h1>
+        <div class="login">
+        <br>
+
+        <label for="txt">User Name</label>
+        <input id="txt" type="text" value="ict">
+        <br><br>
+
+        <label for="pass">password</label>
+        <input id="pass" type="password" value="2020">
+        <br><br><br>
+
+        <input  id="done" type="submit" value="Done" class="btn">
+        <br><br>
+
+        <input id="reset" type="reset" class="btn">
+        <br><br>
+        </div>
+    </div>
+
+    <script>
+        let txt = document.getElementById("txt");
+        let pass = document.getElementById("pass");
+        let done = document.getElementById("done");
+        let reset = document.getElementById("reset");
+
+        txt.addEventListener("keydown", function(e){
+            if(e.key === "Enter"){
+            e.preventDefault();
+            pass.focus();}
+        })
+
+        pass.addEventListener("keydown",function(sh){
+            if(sh.key === "Enter"){
+            sh.preventDefault();
+            done.click();}
+        })
+
+        done.onclick = function(){
+            playSound()
+            if(txt.value === "" && pass.value === ""){
+                alert("Empty Values!👀")
+            }else if(txt.value.toLowerCase() === "ict" && pass.value === "2020"){
+                window.location.href = "Form.html";
+
+            }else{
+                alert("The password or username contains incorrect values!❌");
+            }
+        }
+
+        reset.onclick = function (){
+            playSound()
+            txt.value = "";
+            pass.value = "";
+        }
+
+        // Add Sound to Buttons
+        const addSound = new Audio("click.mp3");
+        function playSound(){
+            addSound.play();
+            addSound.currentTime = 0;
+        }
+    </script>
+</body>
+</html>

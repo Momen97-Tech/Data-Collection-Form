@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="form.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .all {
+        background-color:lightblue;
+        width: 80%;
+        margin:auto;
+        padding: 20px;
+        min-height: 100% ;
+        }
+
+        form {
+        border-top:solid 5px #0f00a3;
+        border-bottom:solid 5px #0f00a3;
+        }
+
+        img{
+            position: absolute;
+            left: 60%;
+            top: 160px;
+        }
+
+        h1{
+        text-align: center;
+        text-transform: capitalize;
+        background-color: #0f00a3;
+        color: white;
+        }
+
+        .btn {
+        width: 120px;
+        height: 40px;
+        font-size:large;
+        border: solid white 2px;
+        border-left: solid black 2px;
+        }
+
+        .btn:hover{
+        background-color: #0f00a3;
+        color:white;
+        border: white solid 2px;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        }
+
+        form label {
+        display: inline-block;
+        width: 110px;
+        }
+
+        #txt ,#mail,#pass,#num,#add {
+        width: 38%;
+        height: 25px;
+        border: solid white 2px;
+        border-left: solid black 2px;
+        transition-duration: 0.5s;
+        background-color: white;
+        color: black;
+        }
+
+        #txt:focus ,#mail:focus,#pass:focus,#num:focus,#add:focus{
+        background-color: white;
+        color: black;
+        transform: scale(1.06);
+        border: 2px black solid;    
+        }
+    </style>
+</head>
+
+
+<body>
+    <img src="form picture.png" alt="Company Picture">
+    <div class="all">
+        <h1>enter your data </h1>
+        <form >
+            <br><br>
+            <label for="txt">Your Name</label>
+            <input id="txt" type="text">
+            <br>
+            <br>
+
+            <label for="mail">E-Mail</label>
+            <input id="mail" type="email">
+            <br>
+            <br>
+
+            <label for="pass">Password</label>
+            <input id="pass" type="password">
+            <br>
+            <br>
+
+            <label for="num">Phone Number</label>
+            <input id="num" type="tel">
+            <br>
+            <br>
+
+            <label for="add">Address</label>
+            <input id="add" type="text">
+            <br>
+            <br>
+
+            <input type="radio" name="one">Male 
+            <input type="radio" name="one" style="margin-left: 80px;"> Female
+            <br>
+            <br>
+
+            <input type="radio" name="two">Marride
+            <input type="radio" name="two" style="margin-left: 62px;">Not Marride
+            <br>
+            <br>
+
+            <input onclick="playSound()" type="submit" value="Done" class="btn">
+            <br>
+            <br>
+
+            <input onclick="playSound()" type="reset" class="btn">
+            <br><br>
+        </form>
+    <div>
+
+    <script>
+        // Add Sound to Buttons
+        const addSound = new Audio("click.mp3");
+        function playSound(){
+            addSound.play();
+            addSound.currentTime = 0;
+        }
+    </script>
+</body>
+</html>
