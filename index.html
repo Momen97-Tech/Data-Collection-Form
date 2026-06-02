@@ -1,144 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .all {
-        background-color:lightblue;
-        width: 80%;
-        margin:auto;
-        padding: 20px;
-        min-height: 100% ;
-        }
-
-        h1{
-        text-align: center;
-        text-transform: capitalize;
-        background-color: #0f00a3;
-        color: white;
-        }
-
-        img{
-            position: absolute;
-            width: 200px;
-            left: 62.5%;
-            top: 135px;
-        }
-
-        .login{
-        border-top:solid 5px #0f00a3;
-        border-bottom:solid 5px #0f00a3;
-        }
-
-        label {
-        display: inline-block;
-        width: 110px
-        }
-
-        .btn {
-        width: 120px;
-        height: 40px;
-        font-size:large;
-        border: solid white 2px;
-        border-left: solid black 2px;
-        }
-
-        .btn:hover{
-        background-color: #0f00a3;
-        color:white;
-        border: white solid 2px;
-        border-left: black solid 2px;
-        transition-duration: 0.5s;
-        cursor: pointer;
-        }
-
-        #txt ,#pass{
-        width: 38%;
-        height: 25px;
-        border: solid white 2px;
-        border-left: solid black 2px;
-        transition-duration: 0.5s;
-        background-color: white;
-        color: black;
-        }
-
-        #txt:focus,#pass:focus{
-        background-color: white;
-        color: black;
-        transform: scale(1.06);
-        border: 2px black solid;    
-        }
-    </style>
-    <link rel="icon" href="login icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-</head>
+    <link rel="icon" href="login icon.png">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8f4f8;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        .all {
+            background-color: lightblue;
+            width: 90%;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+            background-color: #0f00a3;
+            color: white;
+            padding: 12px;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+        }
+
+        .hero-img {
+            float: right;
+            width: clamp(100px, 18vw, 200px);
+            margin: 0 0 12px 16px;
+            display: block;
+        }
+
+        @media (max-width: 520px) {
+            .hero-img { display: none; }
+        }
+
+        .login {
+            border-top: solid 5px #0f00a3;
+            border-bottom: solid 5px #0f00a3;
+            padding: 16px 0;
+            overflow: hidden;
+        }
+
+        .field-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: inline-block;
+            width: 110px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        #txt, #pass {
+            flex: 1 1 180px;
+            height: 34px;
+            border: solid white 2px;
+            border-left: solid black 2px;
+            transition: transform 0.4s, border 0.3s;
+            background-color: white;
+            color: black;
+            padding: 0 8px;
+            font-size: 1rem;
+            min-width: 0;
+        }
+
+        #txt:focus, #pass:focus {
+            outline: none;
+            transform: scale(1.04);
+            border: 2px black solid;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn {
+            flex: 1 1 120px;
+            height: 42px;
+            font-size: 1rem;
+            border: solid white 2px;
+            border-left: solid black 2px;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.4s, color 0.3s;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: #0f00a3;
+            color: white;
+            border: white solid 2px;
+            border-left: black solid 2px;
+            outline: none;
+        }
+
+        @media (max-width: 400px) {
+            label { width: 90px; font-size: 0.9rem; }
+            .btn  { font-size: 0.9rem; height: 38px; }
+        }
+    </style>
+</head>
 <body>
-    <img src="login picture.png" alt="Login Picture">
     <div class="all">
         <h1>Login Page</h1>
         <div class="login">
-        <br>
+            <img class="hero-img" src="login picture.png" alt="Login Picture">
 
-        <label for="txt">User Name</label>
-        <input id="txt" type="text" value="ict">
-        <br><br>
+            <div class="field-row">
+                <label for="txt">User Name</label>
+                <input id="txt" type="text" value="ict">
+            </div>
 
-        <label for="pass">password</label>
-        <input id="pass" type="password" value="2020">
-        <br><br><br>
+            <div class="field-row">
+                <label for="pass">Password</label>
+                <input id="pass" type="password" value="2020">
+            </div>
 
-        <input  id="done" type="submit" value="Done" class="btn">
-        <br><br>
-
-        <input id="reset" type="reset" class="btn">
-        <br><br>
+            <div class="btn-row">
+                <input id="done"  type="submit" value="Done"  class="btn">
+                <input id="reset" type="reset"  value="Reset" class="btn">
+            </div>
         </div>
     </div>
 
     <script>
-        let txt = document.getElementById("txt");
-        let pass = document.getElementById("pass");
-        let done = document.getElementById("done");
+        let txt   = document.getElementById("txt");
+        let pass  = document.getElementById("pass");
+        let done  = document.getElementById("done");
         let reset = document.getElementById("reset");
 
-        txt.addEventListener("keydown", function(e){
-            if(e.key === "Enter"){
-            e.preventDefault();
-            pass.focus();}
-        })
+        const addSound = new Audio("click.mp3");
+        function playSound() { addSound.play(); addSound.currentTime = 0; }
 
-        pass.addEventListener("keydown",function(sh){
-            if(sh.key === "Enter"){
-            sh.preventDefault();
-            done.click();}
-        })
+        txt.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") { e.preventDefault(); pass.focus(); }
+        });
+        pass.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") { e.preventDefault(); done.click(); }
+        });
 
-        done.onclick = function(){
-            playSound()
-            if(txt.value === "" && pass.value === ""){
-                alert("Empty Values!👀")
-            }else if(txt.value.toLowerCase() === "ict" && pass.value === "2020"){
+        done.onclick = function () {
+            playSound();
+            if (txt.value === "" && pass.value === "") {
+                alert("Empty Values! 👀");
+            } else if (txt.value.toLowerCase() === "ict" && pass.value === "2020") {
                 window.location.href = "Form.html";
-
-            }else{
-                alert("The password or username contains incorrect values!❌");
+            } else {
+                alert("The password or username contains incorrect values! ❌");
             }
-        }
+        };
 
-        reset.onclick = function (){
-            playSound()
+        reset.onclick = function () {
+            playSound();
             txt.value = "";
             pass.value = "";
-        }
-
-        // Add Sound to Buttons
-        const addSound = new Audio("click.mp3");
-        function playSound(){
-            addSound.play();
-            addSound.currentTime = 0;
-        }
+        };
     </script>
 </body>
 </html>
